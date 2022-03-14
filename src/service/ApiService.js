@@ -17,7 +17,7 @@ export function call(api, method, request) {
     url: API_BASE_URL + api,
     method: method,
   };
-  
+
   if (request) {
     // GET method
     options.body = JSON.stringify(request);
@@ -51,4 +51,9 @@ export function signin(userDTO){
       window.location.href="/";
     }
   });
+}
+
+export function signout(){
+  localStorage.setItem(ACCESS_TOKEN, null);
+  window.location.href="/login";
 }
